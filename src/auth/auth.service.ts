@@ -29,4 +29,20 @@ export class AuthService {
       message: 'Inicio de sesión exitoso',
     };
   }
+
+    async validateEmail(email : string){
+        const exist = await this.userModel.findOne({
+            where: {
+                email: email
+            }
+        })
+        if (!exist) {
+            throw new BadRequestException(
+            'El correo no esta registrado',
+            );
+        }
+        return {
+            message : 'Correo validado'
+        }
+    }
 }

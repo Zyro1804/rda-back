@@ -13,9 +13,4 @@ export class UserController {
         return this.userService.createUser(user)
     }
 
-    @Get('/email_validar/:email')
-    validEmail(@Param('email') email : string){
-        return this.userService.validateEmail(email)
-    }
-
 }
