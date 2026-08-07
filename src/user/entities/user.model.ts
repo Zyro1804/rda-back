@@ -25,6 +25,14 @@ export class User extends Model {
   })
   declare email: string;
 
+  @Unique
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  declare numero_telefono: string;
+
+
   @Column({
     type: DataType.STRING,
     allowNull: false,
